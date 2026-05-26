@@ -1,121 +1,50 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Your store's dress collection data
+  const [dresses] = useState([
+    { id: 1, name: "Classic Evening Gown", price: "$120", img: "👗" },
+    { id: 2, name: "Floral Summer Dress", price: "$85", img: "👗" },
+    { id: 3, name: "Elegant Party Wear", price: "$150", img: "👗" },
+    { id: 4, name: "Casual Cotton Dress", price: "$60", img: "👗" }
+  ]);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div style={{ fontFamily: 'Arial, sans-serif', color: '#333', backgroundColor: '#fcf8f8', minHeight: '100vh' }}>
+      {/* Navbar Header */}
+      <header style={{ backgroundColor: '#fff', padding: '20px 40px', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1 style={{ margin: 0, color: '#ff69b4', fontSize: '28px', fontWeight: 'bold' }}>✨ Velvet & Vine Boutique</h1>
+        <nav>
+          <span style={{ margin: '0 15px', cursor: 'pointer', fontWeight: '500' }}>New Arrivals</span>
+          <span style={{ margin: '0 15px', cursor: 'pointer', fontWeight: '500' }}>Collections</span>
+          <span style={{ margin: '0 15px', cursor: 'pointer', fontWeight: '500' }}>Sale 🛍️</span>
+        </nav>
+      </header>
 
-      <div className="ticks"></div>
+      {/* Hero Banner */}
+      <div style={{ textAlign: 'center', padding: '60px 20px', backgroundColor: '#ffe4e1' }}>
+        <h2 style={{ fontSize: '36px', marginBottom: '10px' }}>Find Your Perfect Match</h2>
+        <p style={{ fontSize: '18px', color: '#666' }}>Discover premium designs crafted for your unforgettable moments.</p>
+      </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      {/* Product Display Section */}
+      <main style={{ padding: '40px' }}>
+        <h3 style={{ fontSize: '24px', marginBottom: '20px', textAlign: 'center' }}>Our Best Sellers</h3>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto' }}>
+          {dresses.map((dress) => (
+            <div key={dress.id} style={{ backgroundColor: '#fff', border: '1px solid #eee', borderRadius: '12px', padding: '20px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.02)' }}>
+              <div style={{ fontSize: '64px', marginBottom: '10px' }}>{dress.img}</div>
+              <h4 style={{ margin: '10px 0 5px 0', fontSize: '18px' }}>{dress.name}</h4>
+              <p style={{ color: '#ff69b4', fontWeight: 'bold', margin: '0 0 15px 0' }}>{dress.price}</p>
+              <button style={{ backgroundColor: '#ff69b4', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '20px', cursor: 'pointer', fontWeight: 'bold', width: '100%' }}>
+                Add to Cart
+              </button>
+            </div>
+          ))}
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      </main>
+    </div>
   )
 }
 
