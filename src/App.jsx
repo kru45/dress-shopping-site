@@ -6,7 +6,8 @@ function App() {
     { id: 1, name: "Classic Evening Gown", price: "$120", img: "👗" },
     { id: 2, name: "Floral Summer Dress", price: "$85", img: "👗" },
     { id: 3, name: "Elegant Party Wear", price: "$150", img: "👗" },
-    { id: 4, name: "Casual Cotton Dress", price: "$60", img: "👗" }
+    { id: 4, name: "Casual Cotton Dress", price: "$60", img: "👗" },
+    { id: 5, name: "Designer Silk Wrap", price: "$195", img: "👗" }
   ]);
 
   return (
