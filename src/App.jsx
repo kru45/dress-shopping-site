@@ -23,7 +23,7 @@ function App() {
 
       {/* Hero Banner */}
       <div style={{ textAlign: 'center', padding: '60px 20px', backgroundColor: '#ffe4e1' }}>
-        <h2 style={{ fontSize: '36px', marginBottom: '10px' }}>Find Your Perfect Match</h2>
+        <p style={{ fontSize: '18px', color: '#666' }}>Curated premium designs for your most unforgettable moments. ✨</p>
         <p style={{ fontSize: '18px', color: '#666' }}>Discover premium designs crafted for your unforgettable moments.</p>
       </div>
 
